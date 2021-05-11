@@ -13,4 +13,10 @@ public class MrServiceImpl implements MrServiceApi {
     public String yop() {
         return "yop";
     }
+
+    @Override
+    public String pop() {
+        return "pop";
+    }
+
 }

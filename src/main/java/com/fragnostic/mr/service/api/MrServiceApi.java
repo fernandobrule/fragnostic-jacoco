@@ -6,4 +6,6 @@ public interface MrServiceApi {
 
     String yop();
 
+    String pop();
+
 }

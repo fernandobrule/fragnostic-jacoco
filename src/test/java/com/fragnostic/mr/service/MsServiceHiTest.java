@@ -8,8 +8,6 @@ class MsServiceHiTest extends AbstractTest {
 
     @Test
     void canSayHi() {
-
         assertEquals("hi", msServiceApi.hi());
-
     }
 }

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-mvn sonar:sonar \
-  -Dsonar.projectKey=7df6g786df78g67d8sf6g89ds6f7g896sdf9g \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=ab70fac9aa5e5cf6022095f22a9e8bc0af6bd486

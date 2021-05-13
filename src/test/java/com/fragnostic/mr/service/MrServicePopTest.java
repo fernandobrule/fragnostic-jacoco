@@ -8,8 +8,7 @@ class MrServicePopTest extends AbstractTest {
 
     @Test
     void canSayPop() {
-        // assertEquals("pop", mrServiceApi.pop());
-        assertEquals("pop", "pop");
+        assertEquals("pop", mrServiceApi.pop());
     }
 
 }

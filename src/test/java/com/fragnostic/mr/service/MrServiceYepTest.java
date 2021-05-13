@@ -8,8 +8,7 @@ class MrServiceYepTest extends AbstractTest {
 
     @Test
     void canSayYep() {
-        // assertEquals("yep", mrServiceApi.yep());
-        assertEquals("yep", "yep");
+        assertEquals("yep", mrServiceApi.yep());
     }
 
 }

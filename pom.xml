@@ -84,19 +84,25 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.maven.plugin.version}</version>
                 <executions>
+
+                    <!-- prepare-agent -->
                     <execution>
                         <id>coverage-initialize</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+
+                    <!-- report -->
                     <execution>
                         <id>coverage-report</id>
-                        <phase>test</phase>
+                        <phase>post-integration-test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
+
+                    <!-- check -->
                     <execution>
                       <id>coverage-check</id>
                       <goals>
@@ -117,6 +123,7 @@
                         </rules>
                       </configuration>
                     </execution>
+
                 </executions>
             </plugin>
 

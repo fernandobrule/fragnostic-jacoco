@@ -73,10 +73,40 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.vesion}</version>
                 <configuration>
-                    <excludes>
-                        <exclude>*/SomeTest.java</exclude>
-                    </excludes>
+                    <skipTests>true</skipTests>
                 </configuration>
+                <executions>
+
+                    <execution>
+                        <id>unit-tests</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>false</skipTests>
+                            <includes>
+                                <include>**/*Test.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>integration-tests</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>false</skipTests>
+                            <includes>
+                                <include>**/*IT.*</include>
+                                <include>**/*Tests.*</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+
+                </executions>
             </plugin>
 
             <plugin>
@@ -96,7 +126,7 @@
                     <!-- report -->
                     <execution>
                         <id>coverage-report</id>
-                        <phase>post-integration-test</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -116,7 +146,7 @@
                               <limit>
                                 <counter>LINE</counter>
                                 <value>COVEREDRATIO</value>
-                                <minimum>80%</minimum>
+                                <minimum>70%</minimum>
                               </limit>
                             </limits>
                           </rule>

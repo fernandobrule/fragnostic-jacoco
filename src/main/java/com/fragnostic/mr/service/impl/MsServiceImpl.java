@@ -5,17 +5,8 @@ import com.fragnostic.mr.service.api.MsServiceApi;
 public class MsServiceImpl implements MsServiceApi {
 
     @Override
-    public String hi() {
-        return "hi";
+    public String speak() {
+        return "Ms";
     }
 
-    @Override
-    public String ho() {
-        return "ho";
-    }
-
-    @Override
-    public String hu() {
-        return "hu";
-    }
 }

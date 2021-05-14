@@ -1,6 +1,6 @@
 package com.fragnostic.mr.service.api;
 
-public interface MrServiceApi extends SpeakApi {
+public interface SpeakApi {
 
     String speak();
 

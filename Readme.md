@@ -16,7 +16,13 @@
 
 
 # [Jacoco](https://www.eclemma.org/jacoco/index.html), ([GitHub](https://github.com/jacoco/jacoco))
-JaCoCo is a free Java code coverage library for analysis in Java VM based environments.
+JaCoCo is a free Java code coverage library for analysis in Java VM based environments, uses the standard [JVM Tool Interface](https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html). During a build a JaCoCo agent attaches itself to a JVM.
+
+When the JVM starts, and whenever a class is loaded, JaCoCo can use the agent to see when the class is called and what lines are executed. This is how code coverage statistics are collected.
+
+When the JVM terminates it creates the coverage report file. The reports are published in the directory /target/site/jacoco.
+
+The main features of Jacoco are:
 
 - Coverage analysis of instructions (C0), branches (C1), lines, methods, types and cyclomatic complexity.
 - Based on Java byte code and therefore works also without source files.
@@ -84,11 +90,11 @@ Executed when at least one of its methods has been executed
 Notice that as you move down in the JaCoCo counters table, the check goal becomes less constraining.
 
 a counter value is one of:
-- ***TOTALCOUNT***,
-- ***COVEREDCOUNT***,
-- ***MISSEDCOUNT***,
-- ***COVEREDRATIO***,
-- ***MISSEDRATIO***,
+- ***TOTALCOUNT***
+- ***COVEREDCOUNT***
+- ***MISSEDCOUNT***
+- ***COVEREDRATIO***
+- ***MISSEDRATIO***
 
 If a limit refers to a ratio it must be in the range from 0.0 to 1.0 where the number of decimal places will also determine the precision in error messages.  
 A limit ratio may optionally be declared as a percentage where 0.80 and 80% represent the same value.

@@ -83,7 +83,7 @@ Executed when at least one of its methods has been executed
 
 Notice that as you move down in the JaCoCo counters table, the check goal becomes less constraining.
 
-defines a minimum or maximum for the corresponding value:
+a counter value is one of:
 - ***TOTALCOUNT***,
 - ***COVEREDCOUNT***,
 - ***MISSEDCOUNT***,

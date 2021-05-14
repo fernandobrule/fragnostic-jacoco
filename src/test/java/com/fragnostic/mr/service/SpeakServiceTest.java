@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SpeakServiceIT extends AbstractTest {
+class SpeakServiceTest extends AbstractTest {
 
     @Test
     void canSpeak() {

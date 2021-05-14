@@ -3,4 +3,4 @@
 mvn clean test sonar:sonar \
   -Dsonar.projectKey=jjk5h76jh7jk56h7jk5h6jkh75jk6h756 \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=8be234080211e63649bf3db9cf8c3d66a8e27e69
+  -Dsonar.login=ff011001d29f6797fc45868ec1a940a5e791cb69

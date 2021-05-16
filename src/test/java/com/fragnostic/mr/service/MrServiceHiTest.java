@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MsServiceHiTest extends AbstractTest {
+class MrServiceHiTest extends AbstractTest {
 
     @Test
     void canSayHi() {
-        assertEquals(ms, msServiceApi.speak());
+        assertEquals("hi", mrServiceApi.hi());
     }
+
 }

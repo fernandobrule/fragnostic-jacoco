@@ -5,8 +5,13 @@ import com.fragnostic.mr.service.api.MrServiceApi;
 public class MrServiceImpl implements MrServiceApi {
 
     @Override
-    public String speak() {
-        return "Mr";
+    public String hi() {
+        return "hi";
+    }
+
+    @Override
+    public String ho() {
+        return "ho";
     }
 
 }

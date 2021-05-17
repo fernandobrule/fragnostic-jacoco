@@ -12,11 +12,13 @@
 
 > Code coverage helps to answer these questions. 
 
-***Keep in mind though, 100% code coverage does not necessary reflects effective testing, as it only reflects the amount of code exercised during tests.***
+:point_right: ***Keep in mind though, 100% code coverage does not necessary reflects effective testing, as it only reflects the amount of code exercised during tests.***
 
 
 # [Jacoco](https://www.eclemma.org/jacoco/index.html), ([GitHub](https://github.com/jacoco/jacoco))
-JaCoCo is a free Java code coverage library for analysis in Java VM based environments, uses the standard [JVM Tool Interface](https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html). During a build a JaCoCo agent attaches itself to a JVM.
+JaCoCo is a free Java code coverage library for analysis in Java VM based environments, uses the standard [JVM Tool Interface](https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html).
+
+During a build a JaCoCo agent attaches itself to a JVM, creates a file "jacoco.exec" which contains the coverage statistics in binary form.
 
 When the JVM starts, and whenever a class is loaded, JaCoCo can use the agent to see when the class is called and what lines are executed. This is how code coverage statistics are collected.
 
@@ -36,15 +38,20 @@ The main features of Jacoco are:
 - Maven plug-in to collect coverage information and create reports in Maven builds.
 
 ## Jacoco Rules
-Rules on element types: Type of a Java element.
+Rules on Java elements:
+
 - ***BUNDLE***  
-The set of counter limits would have to be met at the application as a whole
+The set of counter limits would have to be met at the application as a whole.
+
 - ***PACKAGE***  
-The set of counter limits would have to be met for all packages
+The set of counter limits would have to be met for all packages.
+
 - ***CLASS***  
-The set of counter limits would have to be met for every Java class
+The set of counter limits would have to be met for every Java class.
+
 - ***SOURCEFILE***  
 The set of counter limits would have to be met for the source file.
+
 - ***METHOD***  
 The set of counter limits would have to be met for every class method.
 
@@ -54,9 +61,12 @@ Observe: BUNDLE less constraining -> METHOD more constraining
 JaCoCo uses a set of different counters to calculate coverage metrics:
 
 - ***INSTRUCTION (C0 Coverage)***  
-The smallest unit JaCoCo counts are single Java byte code instructions. Instruction coverage provides information about the amount of code that has been executed or missed.
+Counts the number of code instructions.  
+The smallest unit JaCoCo counts are single Java byte code instructions.  
+Instruction coverage provides information about the amount of code that has been executed or missed.
 
 - ***BRANCH (C1 Coverage)***  
+Counts the number of execution branches.  
 The total number of branches (***if*** and ***switch*** statements) in a method that can be executed or missed. This metric counts the total number of such branches in a method and determines the number of *executed* or *missed* branches.
 >> **No coverage**: No branches in the line has been executed (red diamond)  
 >> **Partial coverage**: Only a part of the branches in the line have been executed (yellow diamond)  
@@ -76,13 +86,15 @@ Missed complexity again is an indication for the number of test cases missing to
 Note that as JaCoCo does not consider exception handling as branches try/catch blocks will also not increase complexity. 
 
 - ***LINE***  
+Counts the number of lines.  
 Reflects the amount of code that has been exercised based on the number of ***Java byte code instructions*** called by the tests.
 >> **No coverage**: No instruction in the line has been executed (red background)  
 >> **Partial coverage**: Only a part of the instruction in the line have been executed (yellow background)  
 >> **Full coverage**: All instructions in the line have been executed (green background)
 
 - ***METHOD***  
-Executed when at least one instruction has been executed
+Counts the number of methods.  
+Executed when at least one instruction has been executed.
 
 - ***CLASS***  
 Executed when at least one of its methods has been executed
@@ -90,15 +102,30 @@ Executed when at least one of its methods has been executed
 Notice that as you move down in the JaCoCo counters table, the check goal becomes less constraining.
 
 a counter value is one of:
-- ***TOTALCOUNT***
-- ***COVEREDCOUNT***
-- ***MISSEDCOUNT***
-- ***COVEREDRATIO***
-- ***MISSEDRATIO***
 
-If a limit refers to a ratio it must be in the range from 0.0 to 1.0 where the number of decimal places will also determine the precision in error messages.  
-A limit ratio may optionally be declared as a percentage where 0.80 and 80% represent the same value.
+- ***TOTALCOUNT***  
+Total number of items
 
+- ***COVEREDCOUNT***  
+Absolute number of covered items
+
+- ***MISSEDCOUNT***  
+Absolute number of items not covered
+
+- ***COVEREDRATIO***  
+Ratio of covered items to uncovered items (i.e. percentage of total items that are covered)
+
+- ***MISSEDRATIO***  
+Ratio of items not covered
+
+> If a limit refers to a ratio it must be in the range from 0.0 to 1.0 where the number of decimal places will also determine the precision in error messages.  
+> A limit ratio may optionally be declared as a percentage where 0.80 and 80% represent the same value.
+
+
+The following configuration will enforce that 100% of the lines are executed during tests:
+>> counter: LINE  
+>> value: COVEREDRATIO  
+>> minimum: 1.0  
 
 # The Maven Plugin
 
@@ -157,19 +184,19 @@ Observation: *Do not set **forkCount** to 0 or set **forkMode** to never as it w
 
 Running the test using JUnit will automatically set in motion the JaCoCo agent, thus, it will create a coverage report in binary format in the target directory – target/jacoco.exec.
 
-Obviously we cannot interpret the output single-handedly, but other tools and plugins can – e.g. Sonar Qube.
+Obviously we cannot interpret the output single-handedly, but other tools and plugins can – e.g. [Sonar Qube](https://www.sonarqube.org/).
 
 The good news is that we can use the jacoco:report goal in order to generate readable code coverage reports in several formats – e.g. HTML, CSV, and XML.
 
 
-## [prepare-agent goal](https://www.eclemma.org/jacoco/trunk/doc/prepare-agent-mojo.html)
+## [maven goal: prepare-agent](https://www.eclemma.org/jacoco/trunk/doc/prepare-agent-mojo.html)
 The **prepare-agent** goal sets up the property **argLine** (for most packaging types) pointing to the JaCoCo runtime agent.
 
 (You can also pass **argLine** as a VM argument. **maven-surefire-plugin** uses **argLine** to set the JVM options to run the tests.)
 
 - Right after the *clean phase* completes, jacoco-maven-plugin’s **prepare-agent** goal *(bound to the Maven’s Build Default Lifecycle’s initialize phase)* sets the **argLine** property pointing to the **JaCoCo Java agent**.
 
-## [report goal](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html)
+## [maven goal: report](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html)
 The **report** goal creates code coverage reports for tests in **HTML, XML, CSV formats**. 
 
 This goal reads the *dataFile* property value if set, or *target/jacoco.exec*. 
@@ -177,7 +204,7 @@ And writes the resulting reports to *outputDirectory* property value or *target/
 
 -  jacoco-maven-plugin’s **report** goal *(bound to the Maven’s Build Default Lifecycle’s post-integration-test phase)* generates HTML, XML and CSV reports.
 
-## [check goal](https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html)
+## [maven goal: check](https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html)
 The **check** goal validates the coverage rules are met.
 
 In case they are not, it interrupts and fails the build unless **haltOnFailure** property is set to false. 
@@ -188,13 +215,13 @@ In case they are not, it interrupts and fails the build unless **haltOnFailure**
 
 # Refs
 - [Jacoco](https://www.eclemma.org/jacoco/trunk/index.html)
-- [Jacoco GitHub](https://github.com/jacoco/jacoco)
+- [Jacoco - GitHub](https://github.com/jacoco/jacoco)
 - [Reporting Code Coverage using Maven and JaCoCo plugin](https://tech.asimio.net/2019/04/23/Reporting-Code-Coverage-using-Maven-and-JaCoCo-plugin.html)
 - [DZone - Reporting Code Coverage Using Maven and JaCoCo Plugin](https://dzone.com/articles/reporting-code-coverage-using-maven-and-jacoco-plu)
-- [Intro to JaCoCo](https://www.baeldung.com/jacoco)
-- [Scala SBT plugin](https://www.scala-sbt.org/sbt-jacoco/)
-- [Using JaCoCo as a code coverage tool for Scala](https://blog.developer.atlassian.com/using-jacoco-a-code-coverage-tool-for-scala/)
-
+- [Baeldung - Intro to JaCoCo](https://www.baeldung.com/jacoco)
+- [Scala - SBT plugin](https://www.scala-sbt.org/sbt-jacoco/)
+- [Scala - Using JaCoCo as a code coverage tool for Scala](https://blog.developer.atlassian.com/using-jacoco-a-code-coverage-tool-for-scala/)
+- [Gradle -Definitive Guide to the JaCoCo Gradle Plugin](https://reflectoring.io/jacoco/)
 
 ---
 *Creado el 12 de Mayo del 2021 a las 16:21*

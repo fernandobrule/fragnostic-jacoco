@@ -5,13 +5,33 @@ import com.fragnostic.mr.service.api.MrServiceApi;
 public class MrServiceImpl implements MrServiceApi {
 
     @Override
-    public String hi() {
-        return "hi";
+    public String eu() {
+        return "eu";
     }
 
     @Override
-    public String ho() {
-        return "ho";
+    public String tu() {
+        return "tu";
+    }
+
+    @Override
+    public String ele() {
+        return "ele";
+    }
+
+    @Override
+    public String nos() {
+        return "nos";
+    }
+
+    @Override
+    public String vos() {
+        return "vos";
+    }
+
+    @Override
+    public String eles() {
+        return "eles";
     }
 
 }

@@ -2,8 +2,16 @@ package com.fragnostic.mr.service.api;
 
 public interface MsServiceApi {
 
-    String yap();
+    String yo();
 
-    String yep();
+    String tu();
+
+    String el();
+
+    String nosotros();
+
+    String vosotros();
+
+    String ellos();
 
 }

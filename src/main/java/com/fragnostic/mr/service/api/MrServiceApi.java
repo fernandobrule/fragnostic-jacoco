@@ -2,8 +2,16 @@ package com.fragnostic.mr.service.api;
 
 public interface MrServiceApi {
 
-    String hi();
+    String eu();
 
-    String ho();
+    String tu();
+
+    String ele();
+
+    String nos();
+
+    String vos();
+
+    String eles();
 
 }

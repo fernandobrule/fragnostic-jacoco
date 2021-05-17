@@ -16,20 +16,17 @@ public class MsServiceTest extends AbstractBase {
         assertEquals("tu", msServiceApi.tu());
     }
 
-    @Test
-    void canSayEl() {
-        assertEquals("el", msServiceApi.el());
-    }
+    /*
+     * @Test void canSayEl() { assertEquals("el", msServiceApi.el()); }
+     */
 
-    @Test
-    void canSayNosotros() {
-        assertEquals("nosotros", msServiceApi.nosotros());
-    }
+    /*
+     * @Test void canSayNosotros() { assertEquals("nosotros", msServiceApi.nosotros()); }
+     */
 
-    @Test
-    void canSayVosotros() {
-        assertEquals("vosotros", msServiceApi.vosotros());
-    }
+    /*
+     * @Test void canSayVosotros() { assertEquals("vosotros", msServiceApi.vosotros()); }
+     */
 
     @Test
     void canSayEllos() {

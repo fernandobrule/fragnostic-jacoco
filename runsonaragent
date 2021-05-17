@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mvn sonar:sonar \
+mvn clean test sonar:sonar \
   -Dsonar.projectKey=j32h45jklh234jkl5hk2l3h5 \
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.login=951698f3f72b34a36d2155a6a5bee26cac5f9ff1

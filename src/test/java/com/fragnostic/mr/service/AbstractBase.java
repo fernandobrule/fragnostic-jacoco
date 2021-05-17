@@ -5,7 +5,7 @@ import com.fragnostic.mr.service.api.MsServiceApi;
 import com.fragnostic.mr.service.impl.MrServiceImpl;
 import com.fragnostic.mr.service.impl.MsServiceImpl;
 
-abstract class AbstractTest {
+abstract class AbstractBase {
 
     MrServiceApi mrServiceApi = new MrServiceImpl();
 

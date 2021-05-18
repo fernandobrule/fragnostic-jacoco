@@ -115,9 +115,9 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.maven.plugin.version}</version>
                 <configuration>
-                    <excludes>
-                        <exclude>com.fragnostic.playground.glue.*</exclude>
-                    </excludes>
+                    <includes>
+                        <include>com/fragnostic/playground/service/**/*</include>
+                    </includes>
                 </configuration>
                 <executions>
 

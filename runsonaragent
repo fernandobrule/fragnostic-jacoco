@@ -3,4 +3,4 @@
 mvn clean test sonar:sonar \
   -Dsonar.projectKey=fragnostic-jacoco \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=3eaf2b279a99ba84db090a1dab97f6d205d5806c
+  -Dsonar.login=69dfe74b6cb6b60063a556663ce81123e113a86e

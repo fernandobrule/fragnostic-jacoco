@@ -117,7 +117,8 @@
 
                 <configuration>
                     <excludes>
-                        <exclude>com/fragnostic/playground/glue/SomeAccesors.class</exclude>
+                        <exclude>com/fragnostic/playground/glue/*</exclude>
+                        <exclude>com/fragnostic/playground/support/*</exclude>
                     </excludes>
                 </configuration>
 

@@ -1,6 +1,6 @@
-package com.fragnostic.mr.service.impl;
+package com.fragnostic.playground.service.impl;
 
-import com.fragnostic.mr.service.api.MrServiceApi;
+import com.fragnostic.playground.service.api.MrServiceApi;
 
 public class MrServiceImpl implements MrServiceApi {
 

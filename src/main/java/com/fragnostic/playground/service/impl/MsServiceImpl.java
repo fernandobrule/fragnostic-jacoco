@@ -1,6 +1,7 @@
-package com.fragnostic.mr.service.impl;
+package com.fragnostic.playground.service.impl;
 
-import com.fragnostic.mr.service.api.MsServiceApi;
+import com.fragnostic.playground.glue.SomeAccesors;
+import com.fragnostic.playground.service.api.MsServiceApi;
 
 public class MsServiceImpl implements MsServiceApi {
 
@@ -31,7 +32,10 @@ public class MsServiceImpl implements MsServiceApi {
 
     @Override
     public String ellos() {
-        return "ellos";
+        SomeAccesors someAccesors = new SomeAccesors();
+        someAccesors.setFieldOne("one");
+        someAccesors.setFieldTwo("two");
+        return someAccesors.toString();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.fragnostic.mr.service;
+package com.fragnostic.playground.service;
 
 import org.junit.jupiter.api.Test;
 

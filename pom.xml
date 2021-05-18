@@ -114,6 +114,11 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.maven.plugin.version}</version>
+                <configuration>
+                    <excludes>
+                        <exclude>com.fragnostic.playground.glue.*</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
 
                     <!-- prepare-agent -->
@@ -147,7 +152,7 @@
                               <limit>
                                 <counter>LINE</counter>
                                 <value>COVEREDRATIO</value>
-                                <minimum>75%</minimum>
+                                <minimum>80%</minimum>
                               </limit>
                             </limits>
                           </rule>

@@ -1,4 +1,4 @@
-package com.fragnostic.mr.service.api;
+package com.fragnostic.playground.service.api;
 
 public interface MrServiceApi {
 

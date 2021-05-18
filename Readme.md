@@ -131,7 +131,7 @@ The following configuration will enforce that 100% of the lines are executed dur
 
 Observation: *Do not set **forkCount** to 0 or set **forkMode** to never as it would prevent executing the tests with the JaCoCo javaagent and no coverage would be recorded.*
 
-```
+```xml
 <plugin>
     <groupId>org.jacoco</groupId>
     <artifactId>jacoco-maven-plugin</artifactId>

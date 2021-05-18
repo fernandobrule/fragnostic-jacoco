@@ -114,11 +114,13 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.maven.plugin.version}</version>
+
                 <configuration>
-                    <includes>
-                        <include>com/fragnostic/playground/service/**/*</include>
-                    </includes>
+                    <excludes>
+                        <exclude>com/fragnostic/playground/glue/SomeAccesors.class</exclude>
+                    </excludes>
                 </configuration>
+
                 <executions>
 
                     <!-- prepare-agent -->

@@ -1,6 +1,6 @@
 #!/bin/bash
 
 mvn clean test sonar:sonar \
-  -Dsonar.projectKey=f87as6df786sa78df678sda6 \
+  -Dsonar.projectKey=fragnostic-jacoco \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=f13be6031fa7a6e4bf7537d34b5929b3c6806b5c
+  -Dsonar.login=69dfe74b6cb6b60063a556663ce81123e113a86e

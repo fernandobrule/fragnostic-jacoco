@@ -125,17 +125,17 @@ Ratio of items not covered
 > If a limit refers to a ratio it must be in the range from 0.0 to 1.0 where the number of decimal places will also determine the precision in error messages.  
 > A limit ratio may optionally be declared as a percentage where 0.80 and 80% represent the same value.
 
-
-The following configuration will enforce that 100% of the lines are executed during tests:
->> counter: LINE  
->> value: COVEREDRATIO  
->> minimum: 1.0  
-
 # The Maven Plugin
 
-Observation: *Do not set **forkCount** to 0 or set **forkMode** to never as it would prevent executing the tests with the JaCoCo javaagent and no coverage would be recorded.*
+Observation: *Do not set **[forkCount](http://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#forkCount)** to 0 or set **[forkMode](http://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#forkMode)** to never as it would prevent executing the tests with the JaCoCo javaagent and no coverage would be recorded.*
 
+Display help information on jacoco-maven-plugin:
 ```
+$ mvn help:describe -Dplugin=org.jacoco:jacoco-maven-plugin -Ddetail
+```
+
+Sample configuration:
+```xml
 <plugin>
     <groupId>org.jacoco</groupId>
     <artifactId>jacoco-maven-plugin</artifactId>

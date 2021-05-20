@@ -15,6 +15,10 @@
 :point_right: ***Keep in mind though, 100% code coverage does not necessary reflects effective testing, as it only reflects the amount of code exercised during tests.***
 
 
+# SonarQube
+SonarSource analyzers do not run your tests or generate reports. They only import pre-generated reports.
+
+
 # [Jacoco](https://www.eclemma.org/jacoco/index.html), ([GitHub](https://github.com/jacoco/jacoco))
 JaCoCo is a free Java code coverage library for analysis in Java VM based environments, uses the standard [JVM Tool Interface](https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html).
 
